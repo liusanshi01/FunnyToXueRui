@@ -1,8 +1,7 @@
 name: Scheduled Job
-on: 
-#  [push]
- schedule:
-   - cron: "0/7 * * * *" # 设置每天上午 8.30 点触发
+on: #  [push]
+  schedule:
+    - cron: "0/8 * * * *" # 设置每天上午 8.30 点触发
 
 jobs:
   build:
