@@ -1,7 +1,7 @@
 name: Scheduled Job
 on:
   schedule:
-    - cron: "0/4 * * * *" # 设置每天上午 8.30 点触发
+    - cron: "0/5 * * * *" # 设置每天上午 8.30 点触发
 
 jobs:
   build:
@@ -14,6 +14,8 @@ jobs:
       - name: Set up Python environment
         uses: actions/setup-python@v2
 
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
       - name: Run python script
-        run: |
-          python send_love_msg.py
+        run: python send_love_msg.py
