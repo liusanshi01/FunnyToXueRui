@@ -1,11 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-from calendar import month
-from cgi import print_form
-from copyreg import pickle
 from datetime import datetime
-from errno import E2BIG
-from time import time
 import pytz
 import requests
 import json
