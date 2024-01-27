@@ -240,7 +240,7 @@ def wxPusher(tex):
         "contentType": 2,
         # "topicIds":[25530],
         "uids": ["UID_yJGK9gN7hSSO3N82sLXafTqPQo9B"
-            #, "UID_2s4xKdBcfWU6J56XObqvOVGKaVxt"  # RUIRUI
+            , "UID_2s4xKdBcfWU6J56XObqvOVGKaVxt"  # RUIRUI
                  ],
         "url": "http://wxpusher.zjiecode.com"
     }
