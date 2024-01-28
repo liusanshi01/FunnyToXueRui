@@ -75,6 +75,7 @@ def getMeetingDay():
     unixTimeStamp = 1700841600
     tz = pytz.timezone('Asia/Shanghai')
     now = datetime.now(tz)
+    print("现在时间:{}".format(now))
     day = int((now.timestamp() - unixTimeStamp) / (24 * 60 * 60))
     return day
 
