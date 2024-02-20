@@ -79,6 +79,14 @@ def getMeetingDay():
     day = int((now.timestamp() - unixTimeStamp) / (24 * 60 * 60))
     return day
 
+def getLoveDay():
+    # 2023/11/25 00:00:00  1700841600
+    unixTimeStamp = 1707840000
+    tz = pytz.timezone('Asia/Shanghai')
+    now = datetime.now(tz)
+    print("现在时间:{}".format(now))
+    day = int((now.timestamp() - unixTimeStamp) / (24 * 60 * 60))
+    return day
 
 def getNextMeetDay():
     from datetime import date
@@ -241,7 +249,7 @@ def wxPusher(tex):
         "contentType": 2,
         # "topicIds":[25530],
         "uids": ["UID_yJGK9gN7hSSO3N82sLXafTqPQo9B"
-            , "UID_2s4xKdBcfWU6J56XObqvOVGKaVxt"  # RUIRUI
+             , "UID_2s4xKdBcfWU6J56XObqvOVGKaVxt"  # RUIRUI
                  ],
         "url": "http://wxpusher.zjiecode.com"
     }
@@ -267,6 +275,7 @@ if __name__ == "__main__":
     h3 = getNextMeetDay()
 
     m1_md = getMeetingDay()
+    love_d = getLoveDay()
     m2_bd = getBirthDayOfMa()
     # ed = getExpressLoveDay()
     mw = getWeather()
@@ -280,9 +289,10 @@ if __name__ == "__main__":
             <img src="https://img-blog.csdnimg.cn/direct/fd95a70f176b4a56a5aa00cf8b67d290.jpeg" > '''
 
     # tex2 = "{}<br> 今天是我们相爱的<font color=\"#F5BCA9\"> {} </font>天<br>我们已经相遇<font color=\"#F5BCA9\"> {} </font>天<br>距离你的生日还有<font color=\"#F5BCA9\"> {} </font>天<br><br>{}<hr>{}".format(h2,ed, md, bd, w2, dw2)
-    tex2 = '''{}<br> {}<br> {}<br> 今天是我们相遇的<font color=\"#F5BCA9\"> {} </font>天<br>距离你的生日还有<font color=\"#F5BCA9\"> {} </font>天<br>{}<hr>
+    tex2 = '''{}<br> {}<br> {}<br> 
+    我们已经相遇的<font color=\"#F5BCA9\"> {} </font>天<br> 今天是我们相爱的<font color=\"#FF0000\"> {} </font>天<br> 距离你的生日还有<font color=\"#F5BCA9\"> {} </font>天<br>{}<hr>
     {}{}{}'''.format(h1, h2, h3,
-                     m1_md, m2_bd, m3_w2,
+                     m1_md,love_d, m2_bd, m3_w2,
                      dw1, dw2, dw3)
 
     print(tex2)
