@@ -281,19 +281,22 @@ if __name__ == "__main__":
     mw = getWeather()
     m3_w2 = mw.getWeatherTextToWechat()
 
+    dw0 = '''减肥快乐记:<br>
+            <a href="https://docs.qq.com/sheet/DWHp4cUxQTldxU3Ni?tab=p07m9p&_t=1709044340074&u=c036ce3a79ff4fb29ae86e348b05ff6b">身材苗条如画中仙子，自信满满笑容灿烂</a> <br><hr>'''
+
     dw1 = '''共享相册:<br>
         <a href="https://pm.qq.com/m/index.html">愿我如星君如月，夜夜流光相皎洁</a> <br><hr>'''
     dw = getDailyWord()
     dw2 = dw.getDailyWordHtml()
-    dw3 = '''<hr><a href="https://docs.qq.com/sheet/DWHp4cUxQTldxU3Ni?u=b9ad63e5ce68440ba80112f218f1e231&tab=BB08J2">去有风的地方:</a><br>
-            <img src="https://img-blog.csdnimg.cn/direct/fd95a70f176b4a56a5aa00cf8b67d290.jpeg" > '''
+    dw3 = '''<hr><a href="https://docs.qq.com/sheet/DWHp4cUxQTldxU3Ni?u=b9ad63e5ce68440ba80112f218f1e231&tab=BB08J2">（旅游）去有风的地方:</a><br>
+            <img src="https://img-blog.csdnimg.cn/direct/57802d9f50794477a248be4414ac3208.jpeg" > '''
 
     # tex2 = "{}<br> 今天是我们相爱的<font color=\"#F5BCA9\"> {} </font>天<br>我们已经相遇<font color=\"#F5BCA9\"> {} </font>天<br>距离你的生日还有<font color=\"#F5BCA9\"> {} </font>天<br><br>{}<hr>{}".format(h2,ed, md, bd, w2, dw2)
     tex2 = '''{}<br> {}<br> {}<br> 
     我们已经相遇的<font color=\"#F5BCA9\"> {} </font>天<br> 今天是我们相爱的<font color=\"#FF0000\"> {} </font>天<br> 距离你的生日还有<font color=\"#F5BCA9\"> {} </font>天<br>{}<hr>
-    {}{}{}'''.format(h1, h2, h3,
+    {}{}{}{}'''.format(h1, h2, h3,
                      m1_md,love_d, m2_bd, m3_w2,
-                     dw1, dw2, dw3)
+                     dw0,dw1, dw2, dw3)
 
     print(tex2)
     wxPusher(tex2)
