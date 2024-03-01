@@ -132,8 +132,32 @@ def getBirthDayOfMa():
     dt = datetime(now.year, now.month, now.day)
     birthday = datetime(now.year, 10, 4)
     day = int((birthday.timestamp() - dt.timestamp()) / (24 * 60 * 60))
-    print('生日:', day)
     return day
+
+def getMeetwuhan():
+    tz = pytz.timezone('Asia/Shanghai')
+    now = datetime.now(tz)
+
+    # 定义农历日期
+    # day = sxtwl.fromLunar(2022, 1, 6)
+    # 公历的年月日
+    # s = "公历:%d年%d月%d日" % (day.getSolarYear(), day.getSolarMonth(), day.getSolarDay())
+
+    dt = datetime(now.year, now.month, now.day)
+    birthday = datetime(now.year, 3, 21)
+    day = int((birthday.timestamp() - dt.timestamp()) / (24 * 60 * 60))
+    mstr = ""
+    if (day <= 0):
+        mstr = '''<font color=\"#FF0000\">武汉樱花节相见倒计时:</font><br>
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+              <font color=\"#FF0000\">两情若是久长时,又岂在朝朝暮暮</font><br><hr>'''
+    else:
+        mstr ='''<font color=\"#FF0000\">武汉樱花节相见倒计时:</font><br>
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <font color=\"#FF0000\">【{}天】</font><br><hr>'''.format(day)
+    return mstr
 
 
 def getExpressLoveDay():
@@ -249,7 +273,7 @@ def wxPusher(tex):
         "contentType": 2,
         # "topicIds":[25530],
         "uids": ["UID_yJGK9gN7hSSO3N82sLXafTqPQo9B"
-             , "UID_2s4xKdBcfWU6J56XObqvOVGKaVxt"  # RUIRUI
+               , "UID_2s4xKdBcfWU6J56XObqvOVGKaVxt"  # RUIRUI
                  ],
         "url": "http://wxpusher.zjiecode.com"
     }
@@ -280,6 +304,9 @@ if __name__ == "__main__":
     # ed = getExpressLoveDay()
     mw = getWeather()
     m3_w2 = mw.getWeatherTextToWechat()
+    #武汉樱花节相见倒计时
+    dw00 = getMeetwuhan()
+
 
     dw0 = '''减肥快乐记:<br>
             <a href="https://docs.qq.com/sheet/DWHp4cUxQTldxU3Ni?tab=p07m9p&_t=1709044340074&u=c036ce3a79ff4fb29ae86e348b05ff6b">身材苗条如画中仙子，自信满满笑容灿烂</a> <br><hr>'''
@@ -294,9 +321,9 @@ if __name__ == "__main__":
     # tex2 = "{}<br> 今天是我们相爱的<font color=\"#F5BCA9\"> {} </font>天<br>我们已经相遇<font color=\"#F5BCA9\"> {} </font>天<br>距离你的生日还有<font color=\"#F5BCA9\"> {} </font>天<br><br>{}<hr>{}".format(h2,ed, md, bd, w2, dw2)
     tex2 = '''{}<br> {}<br> {}<br> 
     我们已经相遇的<font color=\"#F5BCA9\"> {} </font>天<br> 今天是我们相爱的<font color=\"#FF0000\"> {} </font>天<br> 距离你的生日还有<font color=\"#F5BCA9\"> {} </font>天<br>{}<hr>
-    {}{}{}{}'''.format(h1, h2, h3,
+    {}{}{}{}{}'''.format(h1, h2, h3,
                      m1_md,love_d, m2_bd, m3_w2,
-                     dw0,dw1, dw2, dw3)
+                     dw00,dw0,dw1, dw2, dw3)
 
     print(tex2)
     wxPusher(tex2)
