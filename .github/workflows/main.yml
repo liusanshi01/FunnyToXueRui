@@ -1,22 +1,22 @@
-#name: Scheduled Job
-#on: #  [push]
-#  workflow_dispatch:
-#  schedule:
-#    - cron: "0 0 * * *"  # 设置每天上午 8.30 点触发
-#
-#jobs:
-#  build:
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - name: Checkout code
-#        uses: actions/checkout@v2
-#
-#      - name: Set up Python environment
-#        uses: actions/setup-python@v2
-#
-#      - name: Install dependencies
-#        run: pip install -r requirements.txt
-#
-#      - name: Run python script
-#        run: python send_love_msg.py
+name: Scheduled Job
+on: #  [push]
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"  # 设置每天上午 8.30 点触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python environment
+        uses: actions/setup-python@v2
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run python script
+        run: python send_love_msg.py
