@@ -316,7 +316,7 @@ if __name__ == "__main__":
     dw = getDailyWord()
     dw2 = dw.getDailyWordHtml()
     dw3 = '''<hr><a href="https://docs.qq.com/sheet/DWHp4cUxQTldxU3Ni?u=b9ad63e5ce68440ba80112f218f1e231&tab=BB08J2">（旅游）去有风的地方:</a><br>
-            <img src="https://img-blog.csdnimg.cn/direct/57802d9f50794477a248be4414ac3208.jpeg" > '''
+            <img src="https://img-blog.csdnimg.cn/direct/58a3864465ab4af2a247cf7093ebef71.png" > '''
 
     # tex2 = "{}<br> 今天是我们相爱的<font color=\"#F5BCA9\"> {} </font>天<br>我们已经相遇<font color=\"#F5BCA9\"> {} </font>天<br>距离你的生日还有<font color=\"#F5BCA9\"> {} </font>天<br><br>{}<hr>{}".format(h2,ed, md, bd, w2, dw2)
     tex2 = '''{}<br> {}<br> {}<br>
